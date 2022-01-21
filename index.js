@@ -2,53 +2,63 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const config = require('./utils/config.js');
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: "input",
         message: "What is the title of your Project?",
-        name: "title"
+        name: "title",
+        default: config.titleDefault
     },
     {
         type: "input",
         message: "What is the description of your Project?",
-        name: "description"
+        name: "description",
+        default: config.descriptionDefault
     },
     {
         type: "input",
         message: "What are the installation instructions of your Project?",
-        name: "installation"
+        name: "installation",
+        default: config.installationDefault
     },
     {
         type: "input",
         message: "What is the Usage Information of your Project?",
-        name: "usage"
+        name: "usage",
+        default: config.usageDefault
     },
     {
         type: "input",
         message: "What are the Contribution Guidelines of your Project?",
-        name: "contributions"
+        name: "contributions",
+        default: config.contributionsDefault
     },
     {
         type: "input",
         message: "What are the Test Instructions of your Project?",
-        name: "tests"
+        name: "tests",
+        default: config.testsDefault
     },
     {
         type: "list",
         message: "What is the License of your Project?",
         choices:["ISC", "MIT", "GPL v3", "GPL v2", "CC by 4.0", "EPL 1.0"],
-        name: "license"
+        name: "license",
+        default: config.licenseDefault
     },
     {
         type: "input",
         message: "What is your Username?",
-        name: "username"
+        name: "username",
+        default: config.usernameDefault
     },
     {
         type: "input",
         message: "What developer Email?",
-        name: "devEmail"
+        name: "devEmail",
+        default: config.devEmailDefault
     },
 ];
 
