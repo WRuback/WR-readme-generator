@@ -64,9 +64,8 @@ function init() {
     inquirer
         .prompt(questions)
         .then(function (data) {
-            console.log(data);
             let generatedReadMe = generateMarkdown(data);
-            writeToFile("README.md", generatedReadMe);
+            writeToFile(`README_${data.title.trim().toLowerCase().replace(/\s/g, '-')}.md`, generatedReadMe);
         }
         );
 }
