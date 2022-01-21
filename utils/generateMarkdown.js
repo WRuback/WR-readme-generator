@@ -1,5 +1,5 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Returns a license badge based on which license is passed in.
+// If there is no license, return an empty string.
 function renderLicenseBadge(license) {
   // https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
   // ["ISC", "MIT", "GPL v3", "GPL v2", "CC by 4.0", "EPL 1.0"]
@@ -21,8 +21,8 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Returns the license link.
+// If there is no license, return an empty string.
 function renderLicenseLink(license) {
   switch(license){
     case "ISC":
@@ -42,21 +42,22 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Returns the license section of README.
+// If there is no license, return an empty string.
 function renderLicenseSection(license) {
-  return `This project is licensed under ${renderLicenseLink(license)}.`
+  return license ? `This project is licensed under ${renderLicenseLink(license)}.` : "";
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title.trim()}
+// Generates markdown for README. Takes one object, and deconstructs it to each section,
+// and places them into the markdown, runnig the license functions as needed to form the badges.
+function generateMarkdown({title, description, installation, usage, contributions, tests, license, username, devEmail}) {
+  return `# ${title.trim()}
 
-${renderLicenseBadge(data.license)}
+${renderLicenseBadge(license)}
 
 ## Table of Contents
 
-- [${data.title.trim()}](#${data.title.trim().toLowerCase().replace(/\s/g, '-')})
+- [${title.trim()}](#${title.trim().toLowerCase().replace(/\s/g, '-')})
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Installation](#installation)
@@ -68,33 +69,33 @@ ${renderLicenseBadge(data.license)}
 
 ## Description
 
-${data.description}
+${description}
 
 ## Installation
 
-${data.installation}
+${installation}
 
 ## Usage
 
-${data.usage}
+${usage}
 
 ## Contributing
 
-${data.contributions}
+${contributions}
 
 ## Tests
 
-${data.tests}
+${tests}
 
 ## License
 
-${renderLicenseSection(data.license)}
+${renderLicenseSection(license)}
 
 ## Questions
 
 If you have any questions, please send them to \
-[${data.username}](https://github.com/${data.username}) \
-at ${data.devEmail} with the heading "${data.title} Question".
+[${username}](https://github.com/${username}) \
+at ${devEmail} with the heading "${title} Question".
 `;
 }
 

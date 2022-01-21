@@ -1,3 +1,7 @@
+// Each section is named after the section it is for and Default.
+// They are currently empty strings (Besides License), but they
+// can be filled in to become the default value of each section.
+// Useful for licenses, usernames, and email.
 module.exports = {
     titleDefault: "",
     descriptionDefault: "",
