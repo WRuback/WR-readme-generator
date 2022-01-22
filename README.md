@@ -28,6 +28,8 @@ In the terminal, while in this directory, run `node index.js`. You will then be 
 
 Also, you can open `config.js` in the `utils` folder. There, you can the values of the Default properties to change the default answer for every question. EX: you can set `usernameDefault` to your username, and that will be the default response to the username question.
 
+[Video Instructions Here](https://drive.google.com/file/d/1dij-eAf0csrAjWqcLpSTDXthPaEo86-e/view?usp=sharing).
+
 ## Contributing
 
 Anyone can fork this project and add features. However, all changes to the main section must be approved by the Admin.
