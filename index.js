@@ -1,9 +1,15 @@
-// TODO: Include packages needed for this application
+// Needed to access and write files.
 const fs = require('fs');
+// Needed to ask the questions.
 const inquirer = require('inquirer');
+// Needed to generate the README markdown.
 const generateMarkdown = require('./utils/generateMarkdown.js');
+// Needed to pull the default question answers.
 const config = require('./utils/config.js');
-// TODO: Create an array of questions for user input
+
+// The array of questions for Inquirer.
+// All are text inputs, except for the License question, that is only the license options.
+// Defaults are set to the corresponding values from the config file.
 const questions = [
     {
         type: "input",
@@ -62,14 +68,16 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// Writes the data to a README file, speifically sending it to the GeneratedFiles folder.
 function writeToFile(fileName, data) {
     fs.writeFile('./generatedFiles/' + fileName, data, (err) =>
                 err ? console.error(err) : console.log('Success!')
             );
 }
 
-// TODO: Create a function to initialize app
+// Runs on startup. Starts Inquirer prompting the questions from the questions list.
+// Once the prompts are done, it sends the data object to the generateMarkdown function,
+// And then writes what was made to a new README file.
 function init() {
     inquirer
         .prompt(questions)
@@ -80,5 +88,5 @@ function init() {
         );
 }
 
-// Function call to initialize app
+// Initializes the app.
 init();
