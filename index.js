@@ -75,8 +75,8 @@ function writeToFile(fileName, data) {
             );
 }
 
-// Runs on startup. Starts Inquirer prompting the questions fromthe questions list.
-// Once the prompts are done, it send the data object to the generateMarkdown function,
+// Runs on startup. Starts Inquirer prompting the questions from the questions list.
+// Once the prompts are done, it sends the data object to the generateMarkdown function,
 // And then writes what was made to a new README file.
 function init() {
     inquirer
